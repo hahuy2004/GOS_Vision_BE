@@ -23,9 +23,9 @@ app.add_middleware(
 )
 
 # Model configuration
-IMG_WIDTH = 150
-IMG_HEIGHT = 150
-MODEL_PATH = "dog_cat_classifier_final.h5"
+IMG_WIDTH = 224
+IMG_HEIGHT = 224
+MODEL_PATH = "dog_cat_classifier_final_no_opt.h5"
 
 # Global model variable
 model = None
