@@ -25,7 +25,7 @@ app.add_middleware(
 # Model configuration
 IMG_WIDTH = 150
 IMG_HEIGHT = 150
-MODEL_PATH = "dog_cat_classifier_final.h5"
+MODEL_PATH = "dog_cat_classifier_final.keras"
 
 # Global model variable
 model = None
