@@ -1,51 +1,54 @@
-# Dog Cat Classifier Backend
+# 🐱🐶 Dog Cat Classifier
 
-FastAPI backend for classifying dog and cat images using a pre-trained TensorFlow model.
+Backend FastAPI dùng để phân loại ảnh chó và mèo bằng mô hình CNN từ TensorFlow và Keras đã huấn luyện.
 
-## Features
+## Tính năng
 
-- Upload image files for classification
-- Real-time prediction of dog vs cat
-- RESTful API with automatic documentation
-- CORS enabled for frontend integration
-- Health check endpoints
+- Upload ảnh để phân loại
+- Dự đoán chó hoặc mèo theo thời gian thực
+- API RESTful với tài liệu tự động
+- Hỗ trợ CORS để kết nối với frontend
+- Endpoint kiểm tra trạng thái hệ thống
 
-## Setup
+## Hướng dẫn cài đặt
 
-1. Install dependencies:
+1. Tạo môi trường .venv và cài đặt các thư viện Python:
 ```bash
+python -m venv .venv
 pip install -r requirements.txt
 ```
 
-2. Make sure the model file `dog_cat_classifier_final.h5` is in the backend directory.
+2. Đảm bảo file mô hình `dog_cat_classifier_final_no_opt.h5` nằm trong thư mục backend.
 
-3. Run the server:
+3. Khởi động máy chủ FastAPI:
 ```bash
+.venv\Scripts\activate
 python main.py
 ```
 
-Or using uvicorn directly:
+Hoặc chạy trực tiếp bằng uvicorn:
 ```bash
+.venv\Scripts\activate
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-## API Endpoints
+## Các endpoint API
 
 ### GET /
-Health check endpoint
+Kiểm tra trạng thái hệ thống
 
 ### GET /model/info
-Get information about the loaded model
+Lấy thông tin về mô hình đã tải
 
 ### POST /predict
-Upload an image file for classification
+Upload ảnh để phân loại
 
-**Request:**
-- Method: POST
+**Yêu cầu:**
+- Phương thức: POST
 - Content-Type: multipart/form-data
-- Body: file (image file)
+- Body: file (ảnh)
 
-**Response:**
+**Phản hồi:**
 ```json
 {
   "success": true,
@@ -58,16 +61,16 @@ Upload an image file for classification
 }
 ```
 
-## Model Details
+## Thông tin mô hình
 
-- Input shape: 150x150x3 (RGB images)
-- Output: Single value between 0 and 1
-  - > 0.5: Dog
-  - <= 0.5: Cat
-- Model format: TensorFlow/Keras .h5 file
+- Đầu vào: Ảnh RGB kích thước 224x224x3
+- Đầu ra: Giá trị từ 0 đến 1
+  - > 0.5: Chó
+  - <= 0.5: Mèo
+- Định dạng mô hình: File TensorFlow/Keras (.h5)
 
-## API Documentation
+## Tài liệu API
 
-When the server is running, visit:
+Khi server đang chạy, truy cập:
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
